@@ -25,15 +25,16 @@ const showInfo = function (subject) {
 const cantInSubject = function (student) {
   let information = getMembers();
   let cant = 0;
+  let clases = `${student} is in: `;
 
   for (info in information) {
     information[info].shift();
     if (information[info].includes(student)) {
       cant++;
+      clases += `${info} teacher: ${getMembers(info)[0]}  `;
     }
   }
-  return cant;
+  return cant, clases;
 };
 
-console.log(showInfo("history"));
 console.log(cantInSubject("vale"));
